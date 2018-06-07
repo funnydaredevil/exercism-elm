@@ -23,7 +23,7 @@ stringifyNumber number =
 givenItemByDay: Int -> String
 givenItemByDay number =
     case number of
-        1 -> "Partridge in a Pear Tree"
+        1 -> "a Partridge in a Pear Tree"
         2 -> "two Turtle Doves"
         3 -> "three French Hens"
         4 -> "four Calling Birds"
@@ -37,26 +37,24 @@ givenItemByDay number =
         12 -> "twelve Drummers Drumming"
         _ -> ""
 
-givenItemsList: Int -> String -> String
-givenItemsList number acc =
+givenItemsList: Int -> Bool -> String -> String
+givenItemsList number isLast acc =
     case number of
         1 -> givenItemByDay 1
-            |> String.append (acc ++ ", and a ")    
+            |> String.append (acc ++ ( if isLast then ", " else ", and "))
         number -> givenItemByDay number
-            |> givenItemsList (number - 1)
+            |> givenItemsList (number - 1) False
             |> String.append (acc ++ ", ")
 
 prefix: Int -> String
 prefix number =
     "On the " ++ stringifyNumber number ++ " "
 
-buildPoem : Int -> Int -> String
-buildPoem start stop =
-    prefix(start) ++ commonWords ++ givenItemsList start "" ++ "."
-
+buildPoem : Int -> String
+buildPoem start =
+    prefix(start) ++ commonWords ++ givenItemsList start (start < 2) "" ++ "."
 
 recite : Int -> Int -> List String
 recite start stop =
     List.range start stop
-    |> List.map
-    |> buildPoem
+    |> List.map(buildPoem)

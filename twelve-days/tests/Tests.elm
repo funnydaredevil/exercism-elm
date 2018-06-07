@@ -100,7 +100,7 @@ tests =
                         , "On the third day of Christmas my true love gave to me, three French Hens, two Turtle Doves, and a Partridge in a Pear Tree."
                         ]
                         (TwelveDays.recite 1 3)
-        , skip <|
+        ,
             test "recites three verses from the middle of the song" <|
                 \() ->
                     Expect.equal
@@ -109,7 +109,7 @@ tests =
                         , "On the sixth day of Christmas my true love gave to me, six Geese-a-Laying, five Gold Rings, four Calling Birds, three French Hens, two Turtle Doves, and a Partridge in a Pear Tree."
                         ]
                         (TwelveDays.recite 4 6)
-        , skip <|
+        ,
             test "recites the whole song" <|
                 \() ->
                     Expect.equal
