@@ -13,7 +13,7 @@ tests =
         , describe "run-length encode a string"
             [ test "empty string" <|
                 \() -> Expect.equal "" (encode "")
-            , skip <|
+            ,
                 test "single characters only are encoded without count" <|
                     \() -> Expect.equal "XYZ" (encode "XYZ")
             , skip <|
@@ -35,10 +35,10 @@ tests =
             [ skip <|
                 test "empty string" <|
                     \() -> Expect.equal "" (decode "")
-            , skip <|
+            ,
                 test "single characters only" <|
                     \() -> Expect.equal "XYZ" (decode "XYZ")
-            , skip <|
+            ,
                 test "string with no single characters" <|
                     \() -> Expect.equal "AABBBCCCC" (decode "2A3B4C")
             , skip <|
