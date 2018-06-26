@@ -16,7 +16,7 @@ tests =
             ,
                 test "single characters only are encoded without count" <|
                     \() -> Expect.equal "XYZ" (encode "XYZ")
-            , skip <|
+            ,
                 test "string with no single characters" <|
                     \() -> Expect.equal "2A3B4C" (encode "AABBBCCCC")
             , skip <|
@@ -38,7 +38,7 @@ tests =
             ,
                 test "single characters only" <|
                     \() -> Expect.equal "XYZ" (decode "XYZ")
-            ,
+            , skip <|
                 test "string with no single characters" <|
                     \() -> Expect.equal "AABBBCCCC" (decode "2A3B4C")
             , skip <|
